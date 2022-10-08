@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 2</title>
+</head>
+<body>
+<script>
+    function insertNumberToArray(integers,x,index) {
+        if (index < 0 || index > integers.length) {
+            return integers;
+        } else {
+            integers.splice(index,0,x);
+            return integers;
+        }
+    }
+    // function insertNumberToArray(integers,x,index) {
+    //     if (index < 0 || index > integers.length) {
+    //         return integers;
+    //     } else {
+    //         if (index === 0) {
+    //             integers.unshift(x);
+    //             return integers;
+    //         } else if (index === integers.length) {
+    //             integers.push(x);
+    //             return integers;
+    //         } else {
+    //             let integerArr1 = [];
+    //             let integerArr2 = [];
+    //             for (let i = 0; i <= index-1; i++) {
+    //                 integerArr1.push(integers[i]);
+    //             }
+    //             integerArr1.push(x);
+    //             for (let i = index; i < integers.length; i++) {
+    //                 integerArr2.push(integers[i]);
+    //             }
+    //             let newIntegers = integerArr1.concat(integerArr2);
+    //             return newIntegers;
+    //         }
+    //     }
+    // }
+    let integers = [1,4,5,7,2,9,4,5];
+    console.log(insertNumberToArray(integers,0,4));
+</script>
+</body>
+</html>

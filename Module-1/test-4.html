@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 4</title>
+</head>
+<body>
+<canvas id="my-canvas" width="600px" height="300px"></canvas>
+<script>
+    class Rectangle {
+        x;
+        y;
+        width;
+        height;
+        color;
+        constructor(x,y,width,height,color) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.color = color;
+        }
+        render(canvas) {
+            let ctx = canvas.getContext("2d");
+            ctx.beginPath();
+            ctx.fillStyle = this.color;
+            ctx.fillRect(this.x,this.y,this.width,this.height);
+        }
+    }
+    let rectangle = new Rectangle(50,50,200,100,"#FF5733");
+    let canvas = document.getElementById("my-canvas");
+    rectangle.render(canvas);
+</script>
+</body>
+</html>

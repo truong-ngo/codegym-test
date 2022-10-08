@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 3</title>
+</head>
+<body>
+<script>
+    function sumOfListPrime(x) {
+        function isPrimeNumber(num) {
+            let checkPrimeNumber = true;
+            if (num < 2) {
+                checkPrimeNumber = false;
+            } else if (num > 2) {
+                for (let i = 2; i < num; i++) {
+                    if (num % i === 0) {
+                        checkPrimeNumber = false;
+                        break;
+                    }
+                }
+            }
+            return checkPrimeNumber;
+        }
+        let sum = 0;
+        for (let i = 0; i <= x; i++) {
+            if (isPrimeNumber(i)) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+    console.log(sumOfListPrime(30));
+</script>
+</body>
+</html>
