@@ -19,7 +19,6 @@ public class EmployeeDAO implements InterfaceDAO<Employee, Long> {
                                   ", salary = ?, department_id = ? where id = ?";
     private final String DELETE = "delete from employee where id = ?;";
     private final String SEARCH = "select * from employee where name like ?;";
-
     DBConnection dbConn = DBConnection.getInstance();
     private static EmployeeDAO instance;
 
@@ -66,7 +65,7 @@ public class EmployeeDAO implements InterfaceDAO<Employee, Long> {
     public void insert(Employee employee) throws SQLException, ClassNotFoundException {
         try (Connection connection = dbConn.getConnection();
             PreparedStatement statement = connection.prepareStatement(INSERT)) {
-            setStatement(employee, statement);
+            setUpdateStatement(employee, statement);
             statement.executeUpdate();
         }
     }
@@ -75,7 +74,7 @@ public class EmployeeDAO implements InterfaceDAO<Employee, Long> {
     public void update(Long id, Employee employee) throws SQLException, ClassNotFoundException {
         try (Connection connection = dbConn.getConnection();
             PreparedStatement statement = connection.prepareStatement(UPDATE)) {
-            setStatement(employee, statement);
+            setUpdateStatement(employee, statement);
             statement.setLong(7, id);
             statement.executeUpdate();
         }
@@ -106,7 +105,7 @@ public class EmployeeDAO implements InterfaceDAO<Employee, Long> {
         return employees;
     }
 
-    public void setStatement(Employee employee, PreparedStatement statement) throws SQLException {
+    public void setUpdateStatement(Employee employee, PreparedStatement statement) throws SQLException {
         statement.setString(1, employee.getName());
         statement.setString(2, employee.getEmail());
         statement.setString(3, employee.getAddress());

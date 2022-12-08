@@ -26,7 +26,7 @@ public class DepartmentDAO implements InterfaceDAO<Department, Long> {
         return instance;
     }
     @Override
-    public Department findById(Long id) throws SQLException, ClassNotFoundException {
+    public Department findById(Long id) throws SQLException {
         try (Connection connection = dbConn.getConnection();
             PreparedStatement statement = connection.prepareStatement(SELECT_BY_ID)) {
             statement.setLong(1, id);
@@ -36,7 +36,7 @@ public class DepartmentDAO implements InterfaceDAO<Department, Long> {
     }
 
     @Override
-    public List<Department> findAll() throws SQLException, ClassNotFoundException {
+    public List<Department> findAll() throws SQLException {
         try (Connection connection = dbConn.getConnection();
             PreparedStatement statement = connection.prepareStatement(SELECT_ALL)) {
             ResultSet result = statement.executeQuery();

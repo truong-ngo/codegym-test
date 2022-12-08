@@ -52,7 +52,7 @@ public class EmployeeService implements IService<Employee> {
         EmployeeDAO.getInstance().delete(id);
     }
 
-    public Employee getEmployee(HttpServletRequest request) throws SQLException, ClassNotFoundException {
+    public Employee getEmployee(HttpServletRequest request) throws SQLException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
